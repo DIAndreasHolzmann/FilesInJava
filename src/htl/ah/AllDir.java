@@ -26,7 +26,7 @@ class AllDir
         File f = new File(dirpath, dname);
 
         // If directory exists,then
-        if (f.exists()) {
+        if (f.exists() && f.isDirectory()) {
             
               // Get the contents into arr[]
             // now arr[i] represent either a File or

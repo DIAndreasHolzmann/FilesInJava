@@ -10,6 +10,7 @@ public class DeleteFile
      File newObj = new File("newfile.txt");
      
      Obj.renameTo(newObj);
+     
      // Deleting File
      if (newObj.delete()) {
          System.out.println("The deleted file is : " + Obj.getName());

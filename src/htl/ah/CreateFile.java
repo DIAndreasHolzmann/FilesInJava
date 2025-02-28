@@ -12,11 +12,11 @@ public class CreateFile
        // Creating the File also
        // Handling Exception
      try {
-         File Obj = new File("C:/tmp/myfile.txt");
+         File obj = new File("C:/tmp/myfile.txt");
          
            // Creating File
-           if (Obj.createNewFile()) {
-             System.out.println("File created: " + Obj.getName());
+           if (obj.createNewFile()) {
+             System.out.println("File created: " + obj.getName());
          }
          else {
              System.out.println("File already exists.");
