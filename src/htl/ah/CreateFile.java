@@ -21,6 +21,15 @@ public class CreateFile
          else {
              System.out.println("File already exists.");
          }
+           
+         File obj2 = new File("C:/tmp/newdir");
+         // Create a directory
+         if (obj2.mkdir()) {
+             System.out.println("Directory created: " + obj2.getName());
+         }
+         else {
+             System.out.println("Directory already exists");
+         }
      }
    
        // Exception Thrown
