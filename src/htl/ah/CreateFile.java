@@ -4,6 +4,8 @@ package htl.ah;
 //Import the File class
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class CreateFile
 {
@@ -22,8 +24,10 @@ public class CreateFile
              System.out.println("File already exists.");
          }
            
+     
          File obj2 = new File("C:/tmp/newdir");
-         // Create a directory
+        
+         
          if (obj2.mkdir()) {
              System.out.println("Directory created: " + obj2.getName());
          }

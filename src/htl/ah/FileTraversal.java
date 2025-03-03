@@ -13,7 +13,7 @@ public class FileTraversal {
 	public static void main(String[] args) {
 
 		// Specify the directory path
-		String directoryPath = "/Users/omozegieaziegbe/development/javacodegeeks/";
+		String directoryPath = "C:/tmp";
 
 		// Using File class (pre-Java 7)
 		File directory = new File(directoryPath);
