@@ -7,7 +7,7 @@ class CheckFileExist
 {
     public static void main(String[] args)
     {
-
+    	
         // Accept file name or directory name through
         // command line args
         String fname = "c:/tmp/test.txt";
@@ -28,6 +28,7 @@ class CheckFileExist
             System.out.println("Is readable" + f.canRead());
             System.out.println("Is a directory:" + f.isDirectory());
             System.out.println("Is a file:" + f.isFile());
+           
             System.out.println("File Size in bytes " + f.length());
         }
            

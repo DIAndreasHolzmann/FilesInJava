@@ -6,14 +6,14 @@ public class DeleteFile
 {
  public static void main(String[] args)
  {
-     File Obj = new File("myfile.txt");
+     File obj = new File("myfile.txt");
      File newObj = new File("newfile.txt");
      
-     Obj.renameTo(newObj);
+     obj.renameTo(newObj);
      
      // Deleting File
      if (newObj.delete()) {
-         System.out.println("The deleted file is : " + Obj.getName());
+         System.out.println("The deleted file is : " + obj.getName());
      }
      else {
          System.out.println(
