@@ -68,7 +68,9 @@ class AllDir
         // create an instance of FilenameFilter and override the accept method
         FilenameFilter filter = new FilenameFilter() {
             public boolean accept(File dir, String name) {
-                return name.endsWith(".txt");
+            	// endet auf .txt UND Verzeicnisse 
+            	boolean isDir	 = new File(dir, name).isDirectory();
+                return name.endsWith(".txt") || isDir;
             }
         };
         String arr[] = f.list(filter);
