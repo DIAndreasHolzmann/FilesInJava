@@ -27,6 +27,8 @@ public class ReadWholeFile
 		System.out.println(content);
 		scanner2.close();
 		
+		
+		
 	    try {
             // This line reads the content of the file "example.txt" 
         	// assuming it's encoded in UTF-8.
