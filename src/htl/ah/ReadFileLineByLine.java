@@ -17,7 +17,8 @@ public class ReadFileLineByLine {
 		
 		// Variante 1:
 		// ################################
-		try (BufferedReader reader = new BufferedReader(new FileReader("example.txt"))) {
+		try (BufferedReader reader = new BufferedReader(
+				new FileReader("example.txt"))) {
 		    // Variante 1 A:
 			// ----------------
 			String line;
@@ -33,6 +34,7 @@ public class ReadFileLineByLine {
 		    	// read next line
 		    	line = reader.readLine();
 		    }
+		    reader.close();
 		    
 		    // Bei Verwendung von streams:
 		    // Variante 1 C:
@@ -58,7 +60,8 @@ public class ReadFileLineByLine {
 		// Files.newBufferedReader() erstellt einen BufferedReader
 		try (BufferedReader reader = Files.newBufferedReader(Path.of("largefile.txt"))) {
 	         reader.lines().forEach(line -> { System.out.println(line); });     
-	        } catch (IOException e) {
+	        } 
+		catch (IOException e) {
 	            e.printStackTrace();
 	        }
 		

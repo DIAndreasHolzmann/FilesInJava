@@ -108,10 +108,13 @@ public class WriteFile
         // #####################################################################
         Path p = Path.of("/Users/jo/Desktop/test.txt");
         try {
+        	long start = System.currentTimeMillis();
             Path filePath = Files.writeString(
             		p, "Hallo Welt!", 
             		Charset.forName("UTF-8"), 
             		StandardOpenOption.APPEND);
+            long end = System.currentTimeMillis();
+            long period = end - start;
             
             // Lesen:
             // String str = Files.readString(filePath, Charset.forName("UTF-8"));
