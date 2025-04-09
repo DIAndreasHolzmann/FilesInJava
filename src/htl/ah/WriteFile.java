@@ -17,8 +17,10 @@ public class WriteFile
 {
 	public static void main(String[] args)
 	{
-	    // Writing Text File also
-	    // Exception Handling
+		// FileWriter ist eine Klasse, die das Schreiben von Zeichen 
+		// in Dateien ermöglicht.
+		// Technik 1
+		// Writing Text to a File mit Exception Handling
 	    try {
 	        FileWriter writer = new FileWriter("myfile.txt");
 	
@@ -31,16 +33,20 @@ public class WriteFile
 	        System.out.println("An error has occurred.");
 	        e.printStackTrace();
 	    }
-     
+	    
 	    // #####################################################################
-     
+	    // BufferedWriter:
+	    //   BufferedWriter ist ein Writer, der einen anderen Writer umschliesst
+	    //   und die Effizienz des Schreibens in Textdateien verbessert.
+	    
+	    // Appentding Text to a File mit Exception Handling
 	    File file = new File("Ausgabe.txt"); //Datei, in die geschrieben werden soll
 	    try {
-	    	BufferedWriter writer = new BufferedWriter(
-    			   new FileWriter(file)); 
+	    	BufferedWriter writer = new BufferedWriter(new FileWriter(file)); 
 	    	//Erzeugen eines effizienten Writers für Textdateien
 	    	writer.write("Text");
 	    	writer.newLine();
+	    	// An Ende:
 	    	writer.flush();
 	    	writer.close();
 	    }
@@ -50,7 +56,7 @@ public class WriteFile
  
 
      	// #####################################################################
-     
+        // Append:
      	//Text wird ans Dateiende angehaengen
 		try (FileWriter fwriter = new FileWriter(new File("Logfile.txt"), true)) {
 			BufferedWriter writer = new BufferedWriter(fwriter); 
@@ -65,7 +71,12 @@ public class WriteFile
  
 
 	    // #####################################################################
+		// Klasse PrintWriter:
+		// PrintWriter ist eine Klasse, die das Schreiben von Text in Dateien
+		// erleichtert. Sie bietet Methoden zum Schreiben von Strings,
+		// Formatieren von Ausgaben und mehr.
 		
+		// Mit Exception Handling
 	    String s = "/Users/jo/Desktop/test.txt";
 	    PrintWriter pWriter = null;
         try {
@@ -80,10 +91,10 @@ public class WriteFile
             }
         }
         
-        
+        // Alternative:
         // Seit Java 7
-     // #####################################################################
-		
+        // #####################################################################
+        // try-with-resources
         try (PrintWriter pWriter1 = new PrintWriter(new FileWriter(s))) {
             pWriter1.println("Hallo Welt!");
         } catch (IOException ioe) {
@@ -91,9 +102,10 @@ public class WriteFile
         }
         
         
+        
+        // Files.writeString():
         // Seit Java 11
-     // #####################################################################
-		
+        // #####################################################################
         Path p = Path.of("/Users/jo/Desktop/test.txt");
         try {
             Path filePath = Files.writeString(
@@ -101,9 +113,9 @@ public class WriteFile
             		Charset.forName("UTF-8"), 
             		StandardOpenOption.APPEND);
             
-            
-            String str = Files.readString(filePath, Charset.forName("UTF-8"));
-            System.out.println(str);
+            // Lesen:
+            // String str = Files.readString(filePath, Charset.forName("UTF-8"));
+            // System.out.println(str);
         } catch (IOException e) {
             e.printStackTrace();
         }

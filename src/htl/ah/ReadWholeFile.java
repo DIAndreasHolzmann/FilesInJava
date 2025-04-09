@@ -9,22 +9,25 @@ import java.util.Scanner;
 
 public class ReadWholeFile 
 {
+
+    // ========================
+    // Read file at once:
+    // ========================
+	
 	public static void main(String[] args)
 	{
-
-	    // ========================
-	    // Read file at once:
-	    // ========================
+		String content;
+		// Variante 1:
 	    Scanner scanner2 = new Scanner(new InputStreamReader(
 	    		    ClassLoader.getSystemResourceAsStream("myfile.txt")));
 	
-		scanner2.useDelimiter("\\Z");
-		String content = scanner2.next();
-		System.out.println(content);
+		scanner2.useDelimiter("\\Z"); // \\Z is the end of the input (= eof)
+		content = scanner2.next();
 		scanner2.close();
+		System.out.println(content);
 		
 		
-		
+		// Variante 2:
 	    try {
             // This line reads the content of the file "example.txt" 
         	// assuming it's encoded in UTF-8.

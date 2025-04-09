@@ -9,18 +9,19 @@ public class ReadFileWIthFileChannel {
     public static void main(String[] args) {
     	
     	/*
-    	 * A file channel is a SeekableByteChannel that is connected toa file. 
-    	 * It has a current position within its file which canbe both queried 
-    	 * and modified. The file itself contains a variable-length sequenceof 
+    	 * A file channel is a SeekableByteChannel that is connected to a file. 
+    	 * It has a current position within its file which can be both queried 
+    	 * and modified. The file itself contains a variable-length sequence of 
     	 * bytes that can be read and written and whose current size can be queried. 
-    	 * The size of the file increaseswhen bytes are written beyond its current size; 
+    	 * The size of the file increases when bytes are written beyond its current size; 
     	 * the size of the filedecreases when it is truncated. 
-    	 * The file may also have some associated metadata such as accesspermissions, 
+    	 * The file may also have some associated meta data such as access permissions, 
     	 * content type, and last-modification time; 
-    	 * this class does notdefine methods for metadata access. 
+    	 * this class does not define methods for meta data access. 
     	 */
     	
-        try (FileChannel fileChannel = FileChannel.open(Path.of("largefile.txt"), StandardOpenOption.READ)) {
+        try (FileChannel fileChannel = 
+        		FileChannel.open(Path.of("largefile.txt"), StandardOpenOption.READ)) {
            
         	// Allocate a ByteBuffer with a capacity of 4096 bytes 
         	// to read data from the file channel.
@@ -28,7 +29,7 @@ public class ReadFileWIthFileChannel {
             // Continuously read data from the file channel into the buffer 
             // until there is no more data to read.
             while (fileChannel.read(buffer) > 0) {
-                // Flip the buffer to prepare it for reading. 
+                // Flip the buffer to prepare it for reading: 
             	// This sets the limit to the current position and the position to 0.
                 buffer.flip();
                 // Convert the buffer's content to a string and print it to the console. 

@@ -11,6 +11,7 @@ public class ReadFileByteByByte {
             while ((data = reader.read()) != -1) {
                 System.out.print((char) data);
             }
+            // reader.close(); // not needed because of try-with-resources
         } catch (IOException e) {
             e.printStackTrace();
         }

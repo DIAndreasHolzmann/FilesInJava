@@ -32,7 +32,7 @@ class AllDir
             // now arr[i] represent either a File or
             // Directory
             String [] arr = f.list();
-
+            File  [] files = f.listFiles();
             // Find no. of entries in the directory
             int n = arr.length;
 
